@@ -115,16 +115,16 @@ def scale_guess(img_path, scale):
 
     if len(dets) == 0:
         # AI broken - score based on how close to critical breaking point (0.2)
-        if 0.19 <= scale < 0.21:
+        if 0.24 <= scale < 0.30:
             msg = f"🎯 PERFECT! AI broken at {scale} - Exactly at the critical threshold!"
             points = 10
-        elif 0.15 <= scale < 0.19:
+        elif 0.19 <= scale < 0.24:
             msg = f"⭐ EXCELLENT! AI broken at {scale} - Very close to optimal!"
             points = 9
-        elif 0.10 <= scale < 0.15:
+        elif 0.14 <= scale < 0.19:
             msg = f"👍 GOOD! AI broken at {scale} - Close to optimal!"
             points = 8
-        elif 0.05 <= scale < 0.10:
+        elif 0.05 <= scale < 0.14:
             msg = f"✅ NICE! AI broken at {scale} - Good break but not precise!"
             points = 6
         else:  # Below 0.05
