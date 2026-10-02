@@ -113,9 +113,12 @@ def scale_guess(img_path, scale):
     # Run detection
     dets, ann, _ = detect_wally(temp)
 
-    if len(dets) == 0:
+    if len(dets) == 0 or scale <= 0.29:
         # AI broken - score based on how close to critical breaking point (0.2)
-        if 0.24 <= scale < 0.30:
+        if 0.31 == scale:
+            msg = f"🎯 PERFECT! AI broken at {scale} - Exactly at the critical threshold!"
+            points = 10
+        elif 0.24 <= scale <= 0.29:
             msg = f"🎯 PERFECT! AI broken at {scale} - Exactly at the critical threshold!"
             points = 10
         elif 0.19 <= scale < 0.24:
